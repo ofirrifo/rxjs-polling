@@ -1,0 +1,25 @@
+{
+  "name": "@rifo/rxjs-polling",
+  "version": "0.0.2",
+  "description": "RxJS HTTP Polling",
+  "keywords": [
+    "RxJS HTTP Polling",
+    "HTTP Polling",
+    "Polling",
+    "Angular Polling"
+  ],
+  "author": "Ofir Fridman",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ofirrifo/rxjs-polling.git"
+  },
+  "homepage": "https://github.com/ofirrifo/rxjs-polling",
+  "engines": {
+    "node": ">=10.9.0 <13.0.0",
+    "yarn": ">=1.9.0 <2.0.0"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "rxjs": "~6.4.0"
+  }
+}
