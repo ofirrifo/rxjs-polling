@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "example:start": "ng serve --open",
-    "example:build": "ng build",
-    "example:lint": "ng lint",
+    "example:build": "ng build rxjs-polling-example --prod --aot --buildOptimizer",
+    "example:lint": "ng lint  --fix",
     "lib:build": "ng build rxjs-polling",
-    "lib:lint": "ng lint rxjs-polling"
+    "lib:lint": "ng lint rxjs-polling  --fix"
   },
   "private": true,
   "dependencies": {
