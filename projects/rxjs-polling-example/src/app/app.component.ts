@@ -35,4 +35,8 @@ export class AppComponent {
       })
     );
   }
+
+  trackByFn(index) {
+    return index;
+  }
 }
