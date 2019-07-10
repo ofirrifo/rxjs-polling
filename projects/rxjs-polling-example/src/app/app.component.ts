@@ -22,6 +22,9 @@ export class AppComponent {
     this.startPolling();
   }
 
+  /**
+   * example using the pollingOnResolved method.
+   */
   startPolling(): void {
     const httpRequest$ = this.http.get(`https://blockchain.info/ticker`);
     this.prices$ = pollingOnResolved(httpRequest$, 2000).pipe(
@@ -36,7 +39,7 @@ export class AppComponent {
     );
   }
 
-  trackByFn(index) {
+  trackByFn(index): void {
     return index;
   }
 }
