@@ -1,4 +1,8 @@
-<div class="container">
-  <div class="price">Price</div>
-  <div class="price-number">{{(polling$ | async)}}</div>
+<div  class="container">
+  <div class="item" *ngFor="let item of polling$ | async">
+    <div class="price">Price</div>
+    <div class="price-number">{{item.last}}{{item.symbol}}</div>
+  </div>
 </div>
+
+
