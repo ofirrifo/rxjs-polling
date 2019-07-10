@@ -23,36 +23,4 @@
     justify-content: center;
   }
 
-  .item {
-    width: 200px;
-    height: 200px;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: rgb(223, 227, 235) 0 0 1.5rem 0.4rem;
-    margin: 10px;
-
-
-    .price {
-      margin-bottom: 20px;
-      color: rgb(53, 63, 82);
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-    }
-
-    .price-number {
-      color: rgb(53, 63, 82);
-      opacity: 0.5;
-      font-weight: 400;
-      font-size: 1.1rem;
-
-      &.change{
-        color: orange;
-        opacity: 1;
-      }
-    }
-  }
 }

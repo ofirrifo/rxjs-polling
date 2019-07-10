@@ -1,10 +1,10 @@
 <header>Polling Example</header>
 
-<div  class="container">
-  <div class="item" *ngFor="let item of (prices$ | async); trackBy: trackByFn">
-    <div class="price">Price ({{item.currency}})</div>
-    <div class="price-number" [class.change]="item.change">{{item?.last}}{{item?.symbol}}</div>
-  </div>
+<div class="container">
+  <app-price
+    *ngFor="let price of (prices$ | async); trackBy: trackByFn"
+    [price]="price"
+  ></app-price>
 </div>
 
 
