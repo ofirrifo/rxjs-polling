@@ -1,8 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { pollingOnResolved } from '../../../rxjs-polling/src/lib/rxjs-polling';
 import { map } from 'rxjs/operators';
+
+export interface Price {
+  last: string;
+  symbol: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -10,9 +15,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnDestroy {
-  ngUnSubscribe: Subject<void> = new Subject<void>();
-  polling$: Observable<any>;
+export class AppComponent {
+  prices$: Observable<Price[]>;
 
   constructor(private http: HttpClient) {
     this.startPolling();
@@ -20,7 +24,7 @@ export class AppComponent implements OnDestroy {
 
   startPolling(): void {
     const httpRequest$ = this.http.get(`https://blockchain.info/ticker`);
-    this.polling$ = pollingOnResolved(httpRequest$, 2000).pipe(
+    this.prices$ = pollingOnResolved(httpRequest$, 2000).pipe(
       map(response => {
         return Object.keys(response).map((key: string) => {
           return {
@@ -30,10 +34,5 @@ export class AppComponent implements OnDestroy {
         });
       })
     );
-  }
-
-  ngOnDestroy(): void {
-    this.ngUnSubscribe.next();
-    this.ngUnSubscribe.complete();
   }
 }
