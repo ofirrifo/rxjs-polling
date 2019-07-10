@@ -7,6 +7,8 @@ import { map } from 'rxjs/operators';
 export interface Price {
   last: string;
   symbol: string;
+  currency: string;
+  change: boolean;
 }
 
 @Component({
@@ -17,6 +19,7 @@ export interface Price {
 })
 export class AppComponent {
   prices$: Observable<Price[]>;
+  oldPrices: Price[];
 
   constructor(private http: HttpClient) {
     this.startPolling();
@@ -27,14 +30,19 @@ export class AppComponent {
    */
   startPolling(): void {
     const httpRequest$ = this.http.get(`https://blockchain.info/ticker`);
-    this.prices$ = pollingOnResolved(httpRequest$, 2000).pipe(
+    this.prices$ = pollingOnResolved(httpRequest$, 2_000).pipe(
       map(response => {
-        return Object.keys(response).map((key: string) => {
+        const prices = Object.keys(response).map((key: string) => {
+          const change = this.oldPrices && this.oldPrices[key].last !== response[key].last;
           return {
+            currency: key,
             last: response[key].last,
-            symbol: response[key].symbol
+            symbol: response[key].symbol,
+            change
           };
         });
+        this.oldPrices = response;
+        return prices;
       })
     );
   }
