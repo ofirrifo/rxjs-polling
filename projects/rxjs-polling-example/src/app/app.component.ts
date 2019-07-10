@@ -8,7 +8,7 @@ export interface Price {
   last: string;
   symbol: string;
   currency: string;
-  change: boolean;
+  change: string;
 }
 
 @Component({
@@ -33,7 +33,10 @@ export class AppComponent {
     this.prices$ = pollingOnResolved(httpRequest$, 2_000).pipe(
       map(response => {
         const prices = Object.keys(response).map((key: string) => {
-          const change = this.oldPrices && this.oldPrices[key].last !== response[key].last;
+          let change = '';
+          if (this.oldPrices && this.oldPrices[key].last !== response[key].last) {
+            change = this.oldPrices[key].last < response[key].last ? 'up' : 'down';
+          }
           return {
             currency: key,
             last: response[key].last,

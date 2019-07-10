@@ -1,4 +1,7 @@
 <div class="item">
   <div class="price">Price ({{price?.currency}})</div>
-  <div class="price-number" [class.change]="price?.change">{{price?.last}}{{price?.symbol}}</div>
+  <div
+    class="price-number {{price?.change}}">
+    {{price?.last}}{{price?.symbol}}
+  </div>
 </div>
