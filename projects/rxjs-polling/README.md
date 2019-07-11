@@ -1,24 +1,38 @@
 # RxjsPolling
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
-## Code scaffolding
+## Prerequisites
+project have dependencies that require rxjs 6.4.0 or higher.
 
-Run `ng generate component component-name --project rxjs-polling` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project rxjs-polling`.
-> Note: Don't forget to add `--project rxjs-polling` or else it will be added to the default project in your `angular.json` file. 
+## Table of Contents
 
-## Build
+- Installation
+- Usage
+- Demo
 
-Run `ng build rxjs-polling` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Installation
+```sh
+npm i @rifo/rxjs-polling 
+```
 
-## Publishing
+## Usage
+```js
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { pollingOnResolved } from '@rifo/rxjs-polling';
 
-After building your library with `ng build rxjs-polling`, go to the dist folder `cd dist/rxjs-polling` and run `npm publish`.
+@Component({
+  selector: 'app-root',
+  templateUrl: `<div>{{response$ | async}}</div>`,
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  response$: Observable<string>;
+  constructor(private http: HttpClient) {
+     const httpRequest$ = this.http.get(`https://blockchain.info/ticker`);
+     this.response$ = pollingOnResolved(httpRequest$, 2_000);
+  }
+}
+```
 
-## Running unit tests
-
-Run `ng test rxjs-polling` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## [Demo](https://ofirrifo.github.io/rxjs-polling)

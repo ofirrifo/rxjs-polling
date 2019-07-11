@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "example:start": "ng serve --open",
-    "example:build": "ng build rxjs-polling-example --prod --aot --buildOptimizer",
+    "example:build": "ng build rxjs-polling-example --prod --aot --buildOptimizer --base-href='https://ofirrifo.github.io/rxjs-polling/'",
+    "example:publish": "ngh --dir=./dist/rxjs-polling-example --no-silent",
     "example:lint": "ng lint  --fix",
     "lib:build": "ng build rxjs-polling",
     "lib:lint": "ng lint rxjs-polling  --fix"
