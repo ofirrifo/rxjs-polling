@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "all:build": "npm run example:build && npm run lib:build",
     "example:start": "ng serve --open",
     "example:build": "ng build rxjs-polling-example --prod --aot --buildOptimizer --base-href='https://ofirrifo.github.io/rxjs-polling/'",
     "example:publish": "ngh --dir=./dist/rxjs-polling-example --no-silent",
