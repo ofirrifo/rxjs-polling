@@ -6,16 +6,16 @@ project have dependencies that require rxjs 6.4.0 or higher.
 
 ## Table of Contents
 
-- Installation
-- Usage
-- Demo
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demo](#demo)
 
 ## Installation
 ```sh
 npm i @rifo/rxjs-polling 
 ```
 
-## Usage
+##<a name="usage">Usage</a>
 ```js
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
