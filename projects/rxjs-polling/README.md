@@ -9,6 +9,7 @@ project have dependencies that require rxjs 6.4.0 or higher.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demo](#demo)
+- [Stackblitz Example](#stackblitz example)
 
 ## Installation
 ```sh
@@ -36,3 +37,5 @@ export class AppComponent {
 ```
 
 ## [Demo](https://ofirrifo.github.io/rxjs-polling)
+
+## [Stackblitz Example](https://stackblitz.com/edit/rxjs-polling-example-1?file=src/app/app.component.ts)
