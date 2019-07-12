@@ -28,5 +28,8 @@
         "dist/rxjs-polling/*"
       ]
     }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": true
   }
 }
