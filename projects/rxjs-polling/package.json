@@ -1,6 +1,6 @@
 {
   "name": "@rifo/rxjs-polling",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "RxJS HTTP Polling",
   "keywords": [
     "RxJS HTTP Polling",
@@ -20,6 +20,6 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "rxjs": "~6.4.0"
+    "rxjs": "~6.5.2"
   }
 }
