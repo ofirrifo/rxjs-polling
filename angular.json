@@ -87,6 +87,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/rxjs-polling-example/src/environments/environment.ts",
+                  "with": "projects/rxjs-polling-example/src/environments/environment.hmr.ts"
+                }
+              ]
             }
           }
         },
@@ -98,6 +106,10 @@
           "configurations": {
             "production": {
               "browserTarget": "rxjs-polling-example:build:production"
+            },
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "rxjs-polling-example:build:hmr"
             }
           }
         },
