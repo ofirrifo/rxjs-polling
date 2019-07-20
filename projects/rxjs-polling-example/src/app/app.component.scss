@@ -15,6 +15,13 @@
     align-items: center;
     font-size: 1.5em;
     position: relative;
+    flex-direction: column;
+
+    .note{
+      font-size: .6em;
+      margin-left: 50px;
+      color: red;
+    }
   }
 
   .container {
