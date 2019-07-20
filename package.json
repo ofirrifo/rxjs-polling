@@ -7,7 +7,7 @@
     "example:start": "ng serve --open",
     "example:start:hmr": "ng serve --open --configuration hmr",
     "example:build": "ng build rxjs-polling-example --prod --aot --buildOptimizer --base-href='https://ofirrifo.github.io/rxjs-polling/'",
-    "example:publish": "ngh --dir=./dist/rxjs-polling-example --no-silent",
+    "example:publish": "npm run example:build && ngh --dir=./dist/rxjs-polling-example --no-silent",
     "example:lint": "ng lint rxjs-polling-example --fix",
     "lib:build": "ng build rxjs-polling",
     "lib:lint": "ng lint rxjs-polling --fix",
