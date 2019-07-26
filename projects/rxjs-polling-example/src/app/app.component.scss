@@ -18,18 +18,30 @@ $header-height: 60px;
     position: relative;
     flex-direction: column;
 
-    .note{
+    .note {
       font-size: .6em;
       color: red;
     }
   }
 
-  .container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    height: calc(100vh - #{$header-height});
-    overflow: auto;
+
+  @media all and (min-width: 768px) {
+    .container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+      height: calc(100vh - #{$header-height});
+      overflow: auto;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - #{$header-height});
+      overflow: auto;
+    }
   }
 
 }

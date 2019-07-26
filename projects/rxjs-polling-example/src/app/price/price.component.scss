@@ -4,40 +4,80 @@
     box-sizing: border-box;
   }
 
-  .item {
-    width: 200px;
-    height: 200px;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: rgb(223, 227, 235) 0 0 1.5rem 0.4rem;
-    margin: 10px;
+
+  @media all and (min-width: 768px) {
+    .item {
+      width: 200px;
+      height: 200px;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow: rgb(223, 227, 235) 0 0 1.5rem 0.4rem;
+      margin: 10px;
 
 
-    .price {
-      margin-bottom: 20px;
-      color: rgb(53, 63, 82);
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-    }
-
-    .price-number {
-      color: rgb(53, 63, 82);
-      opacity: 0.5;
-      font-weight: 400;
-      font-size: 1.1rem;
-
-      &.down {
-        color: red;
-        opacity: 1;
+      .price {
+        margin-bottom: 20px;
+        color: rgb(53, 63, 82);
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
       }
 
-      &.up {
-        color: green;
-        opacity: 1;
+      .price-number {
+        color: rgb(53, 63, 82);
+        opacity: 0.5;
+        font-weight: 400;
+        font-size: 1.1rem;
+
+        &.down {
+          color: red;
+          opacity: 1;
+        }
+
+        &.up {
+          color: green;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    .item {
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid;
+
+
+      .price {
+        color: rgb(53, 63, 82);
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-right: 20px;
+      }
+
+      .price-number {
+        color: rgb(53, 63, 82);
+        opacity: 0.5;
+        font-weight: 400;
+        font-size: 1.1rem;
+
+        &.down {
+          color: red;
+          opacity: 1;
+        }
+
+        &.up {
+          color: green;
+          opacity: 1;
+        }
       }
     }
   }
