@@ -5,7 +5,7 @@ import { first, take } from 'rxjs/operators';
 describe('RxjsPollingOService', () => {
   it('should polling 10 times', done => {
     let index = 0;
-    const request$ = interval(100);
+    const request$ = interval(100).pipe(first());
     const takeCount = 10;
     pollingOnResolved(request$)
       .pipe(take(takeCount))
