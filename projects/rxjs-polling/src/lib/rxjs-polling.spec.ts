@@ -1,6 +1,6 @@
 import { interval, of } from 'rxjs';
 import { pollingOnResolved } from './rxjs-polling';
-import { take } from 'rxjs/operators';
+import { first, take } from 'rxjs/operators';
 
 describe('RxjsPollingOService', () => {
   it('should polling 10 times', done => {
@@ -17,14 +17,19 @@ describe('RxjsPollingOService', () => {
       });
   });
 
-  it('should polling delay be between (400 - 409)ms after each response', done => {
-    const request$ = of(0);
+  it('should polling delay be between (269 - 270)ms after each response', done => {
+    const responseMockInMs = 100;
+    const pollingDelayInMs = 150;
+    const threshold = 20;
+    const expectedToBeLessThan = responseMockInMs + pollingDelayInMs + threshold;
+    const expectedToGreaterThan = responseMockInMs + pollingDelayInMs - 1;
+    const request$ = interval(responseMockInMs).pipe(first());
     const takeCount = 4;
     let start;
     let end;
     let index = 0;
 
-    pollingOnResolved(request$, 400)
+    pollingOnResolved(request$, pollingDelayInMs)
       .pipe(take(takeCount))
       .subscribe(() => {
         // The first request
@@ -36,8 +41,8 @@ describe('RxjsPollingOService', () => {
         if (index === 1) {
           end = performance.now();
           const elapsedTime = end - start;
-          expect(elapsedTime).toBeLessThan(410);
-          expect(elapsedTime).toBeGreaterThan(399);
+          expect(elapsedTime).toBeLessThan(expectedToBeLessThan);
+          expect(elapsedTime).toBeGreaterThan(expectedToGreaterThan);
           start = performance.now(); // reset start for the second test
         }
 
@@ -45,8 +50,8 @@ describe('RxjsPollingOService', () => {
         if (index === 2) {
           end = performance.now();
           const elapsedTime = end - start;
-          expect(elapsedTime).toBeLessThan(410);
-          expect(elapsedTime).toBeGreaterThan(399);
+          expect(elapsedTime).toBeLessThan(expectedToBeLessThan);
+          expect(elapsedTime).toBeGreaterThan(expectedToGreaterThan);
           done();
         }
         index++;
