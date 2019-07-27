@@ -12,6 +12,7 @@
     "example:lint": "ng lint rxjs-polling-example --fix",
     "lib:build": "ng build rxjs-polling",
     "lib:lint": "ng lint rxjs-polling --fix",
+    "lib:test": "ng test rxjs-polling",
     "lib:publish": "./dist/rxjs-polling npm publish"
   },
   "private": true,
