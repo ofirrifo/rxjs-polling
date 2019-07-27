@@ -10,8 +10,9 @@ describe('RxjsPollingOService', () => {
     pollingOnResolved(request$)
       .pipe(take(takeCount))
       .subscribe(response => {
-        expect(response).toBe(index++);
-        if (index === takeCount - 1) {
+        ++index;
+        if (index === takeCount) {
+          expect(takeCount).toBe(index);
           done();
         }
       });
