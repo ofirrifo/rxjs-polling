@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lib:test:pre-comit"
+      "pre-push": "npm run lib:test:pre-comit"
     }
   },
   "private": true,
