@@ -12,8 +12,13 @@
     "example:lint": "ng lint rxjs-polling-example --fix",
     "lib:build": "ng build rxjs-polling",
     "lib:lint": "ng lint rxjs-polling --fix",
-    "lib:test": "ng test rxjs-polling",
+    "lib:test:pre-comit": "ng test rxjs-polling --watch=false",
     "lib:publish": "./dist/rxjs-polling npm publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lib:test:pre-comit"
+    }
   },
   "private": true,
   "dependencies": {
@@ -40,6 +45,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~12.6.8",
     "codelyzer": "^5.0.0",
+    "husky": "^3.0.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.2.0",
