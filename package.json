@@ -13,7 +13,8 @@
     "lib:build": "ng build rxjs-polling",
     "lib:lint": "ng lint rxjs-polling --fix",
     "lib:test:pre-comit": "jest",
-    "lib:publish": "./dist/rxjs-polling npm publish"
+    "lib:publish": "./dist/rxjs-polling npm publish",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "husky": {
     "hooks": {
