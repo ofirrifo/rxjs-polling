@@ -98,6 +98,7 @@
               ]
             },
             "hmr": {
+              "aot": true,
               "budgets": [
                 {
                   "type": "anyComponentStyle",
