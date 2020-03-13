@@ -1,6 +1,6 @@
 {
   "name": "@rifo/rxjs-polling",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "RxJS HTTP Polling",
   "keywords": [
     "RxJS HTTP Polling",
